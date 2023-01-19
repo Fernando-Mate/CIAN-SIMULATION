@@ -7,6 +7,13 @@ use Illuminate\Http\Request;
 
 class PublicidadeController extends Controller
 {
+    private $objPublicidade;
+
+    public function __construct()
+    {
+        $objPublicidade = new Publicidade();
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -14,7 +21,7 @@ class PublicidadeController extends Controller
      */
     public function index()
     {
-        //
+
     }
 
     /**
@@ -35,7 +42,8 @@ class PublicidadeController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $publicidade = new Publicidade();
+        $publicidade->location = $request->input('location');
     }
 
     /**
