@@ -15,6 +15,11 @@ return new class extends Migration
     {
         Schema::create('publicidades', function (Blueprint $table) {
             $table->id();
+            $table->string('location');
+            $table->string('img');
+            $table->string('contact');
+            $table->string('title');
+            $table->string('desc');
             $table->timestamps();
         });
     }
