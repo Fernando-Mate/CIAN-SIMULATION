@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\Publicidade;
 use Illuminate\Http\Request;
+use Illuminate\Http\Response;
+use Illuminate\Support\Facades\Auth;
 
 class PublicidadeController extends Controller
 {
@@ -35,7 +37,20 @@ class PublicidadeController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $Publicidade = new Publicidade();
+        $Publicidade->pub_location = $request->input('location');
+        $Publicidade->pub_img = $request->file('img')->store('images\\');
+        $Publicidade->pub_contact = $request->input('contact');
+        $Publicidade->pub_title = $request->input('title');
+        $Publicidade->pub_nivel = $request->input('desc');
+        if (!$Publicidade->save()) {
+            $addPublicidade['success'] = false;
+            $addPublicidade['mensagem'] = 'Erro na submissão de publicidade.';
+            return response()->json($addPublicidade, Response::HTTP_ACCEPTED);
+        }
+        $addPublicidade['success'] = true;
+        $addPublicidade['mensagem'] = 'Pedido feito com sucesso.';
+        return response()->json($addPublicidade, Response::HTTP_OK);
     }
 
     /**
