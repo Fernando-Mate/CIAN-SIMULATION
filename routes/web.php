@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\PublicidadeController;
 use Illuminate\Support\Facades\Route;
 
 /*
