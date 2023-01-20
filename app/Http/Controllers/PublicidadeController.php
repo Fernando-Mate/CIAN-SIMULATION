@@ -63,7 +63,7 @@ class PublicidadeController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Publicidade  $publicidade
+     * @param  \App\Models\Publicidade
      * @return \Illuminate\Http\Response
      */
     public function show(Publicidade $publicidade)
